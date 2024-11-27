@@ -26,8 +26,8 @@
   },
   "modules": [
     {
-      "name": "entry",
-      "srcPath": "./entry",
+      "name": "phone",
+      "srcPath": "./products/phone",
       "targets": [
         {
           "name": "default",
@@ -39,19 +39,23 @@
     },
     {
       "name": "home",
-      "srcPath": "./home",
+      "srcPath": "./feature/home"
     },
     {
       "name": "List",
-      "srcPath": "./List",
+      "srcPath": "./feature/List"
     },
     {
       "name": "login",
-      "srcPath": "./login",
+      "srcPath": "./feature/login"
     },
     {
       "name": "RouterModule",
-      "srcPath": "./RouterModule",
+      "srcPath": "./common/RouterModule"
+    },
+    {
+      "name": "rdb",
+      "srcPath": "./common/rdb",
     }
   ]
 }

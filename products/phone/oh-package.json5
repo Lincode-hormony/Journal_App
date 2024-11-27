@@ -1,0 +1,14 @@
+{
+  "name": "phone",
+  "version": "1.0.0",
+  "description": "Please describe the basic information.",
+  "main": "",
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "routermodule": "file:../../common/RouterModule",
+    "home": "file:../../feature/home",
+    "list": "file:../../feature/List",
+    "login": "file:../../feature/login"
+  }
+}
