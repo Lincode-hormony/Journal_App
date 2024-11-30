@@ -3,6 +3,7 @@ export class BuilderNameConstants{
   static readonly LOGIN_LOGINPAGE:string='login_loginPage'
   static readonly LOGIN_LOGINFEATURE:string='login_LoginFeature'
   static readonly HOME_EDITPAGE:string='home_editPage'
+  static readonly HOME_UPDATEPAGE:string='home_updatePage'
 }
 
 export class RouterNameConstants{

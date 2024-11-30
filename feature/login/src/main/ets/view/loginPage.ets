@@ -73,18 +73,20 @@ export struct loginPage {
               })
             if(this.userName=='游客10086'){
               Column({space:10}){
-                Text(`你好，${this.userName}`).fontSize(20)
-                Text('点击登录').fontSize(20)
+                Text(`你好，${this.userName}`).fontSize(20).width('100%')
+                Text('点击登录').fontSize(20).width('100%')
               }
+              //.backgroundColor(Color.Pink)
               .onClick(()=>{
                 if(this.userName=='游客10086')
                 builderRouterModel(RouterNameConstants.ENTRY_HAP,BuilderNameConstants.LOGIN_LOGINFEATURE)
               })
             }else {
               Column({space:10}){
-                Text(`你好，${this.userName}`).fontSize(20)
-                Text('欢迎来到流年记！').fontSize(20)
+                Text(`你好，${this.userName}`).fontSize(20).width('100%')
+                Text('欢迎来到流年记！').fontSize(20).width('100%')
               }
+              //.backgroundColor(Color.Pink)
               .onClick(()=>{
                 if(this.userName=='游客10086')
                 builderRouterModel(RouterNameConstants.ENTRY_HAP,BuilderNameConstants.LOGIN_LOGINFEATURE)

@@ -1,6 +1,6 @@
 {
   "module": {
-    "name": "List_test",
+    "name": "list_test",
     "type": "feature",
     "deviceTypes": [
       "default",

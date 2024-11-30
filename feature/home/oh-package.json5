@@ -6,6 +6,7 @@
   "author": "",
   "license": "Apache-2.0",
   "dependencies": {
-    "routermodule": "file:../../common/RouterModule"
+    "routermodule": "file:../../common/RouterModule",
+    "rdb": "file:../../common/rdb"
   }
 }

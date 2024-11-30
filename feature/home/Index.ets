@@ -10,6 +10,9 @@ export function harInit(builderName:string):void{
     case BuilderNameConstants.HOME_EDITPAGE:
       import('./src/main/ets/View/editPage')
       break;
+    case BuilderNameConstants.HOME_UPDATEPAGE:
+      import('./src/main/ets/View/updatePage')
+      break;
       default :
         break;
   }

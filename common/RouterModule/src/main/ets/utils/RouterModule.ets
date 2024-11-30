@@ -37,7 +37,7 @@ export class RouterModule{
     console.log('跳转模块：'+harName)
     //动态导入该页面
     await import(harName).then((ns:ESObject)=>{ns.harInit(router.builderName)})
-    RouterModule.getRouter(router.routerName).pushPath({name:router.builderName,param:router.param})
+    RouterModule.getRouter(router.routerName).pushPath({name:router.builderName,onPop:router.onPop,param:router.param})
   }
 
   //弹出当前页面

@@ -42,8 +42,8 @@
       "srcPath": "./feature/home"
     },
     {
-      "name": "List",
-      "srcPath": "./feature/List"
+      "name": "list",
+      "srcPath": "./feature/list"
     },
     {
       "name": "login",

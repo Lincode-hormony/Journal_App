@@ -25,6 +25,7 @@ export struct loginFeature{
         Row(){
           Text('应用密码：').fontSize(12)
           TextInput().type(InputType.Password).width('78%')
+            .enableKeyboardOnFocus(true)
         }
         .margin({top:20})
 

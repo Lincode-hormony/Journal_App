@@ -8,7 +8,8 @@
   "dependencies": {
     "routermodule": "file:../../common/RouterModule",
     "home": "file:../../feature/home",
-    "list": "file:../../feature/List",
-    "login": "file:../../feature/login"
+    "list": "file:../../feature/list",
+    "login": "file:../../feature/login",
+    "rdb": "file:../../common/rdb"
   }
 }

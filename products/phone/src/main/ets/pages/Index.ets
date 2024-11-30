@@ -4,7 +4,7 @@ import {listPage} from 'list'
 import {loginPage} from  'login'
 
 // AppStorage.setOrCreate('userName','游客10086')
-PersistentStorage.persistProp('userName', '游客10086');
+
 
 
 @Entry
@@ -18,7 +18,9 @@ struct Index {
       this.appRouter=new NavPathStack()
     }
     RouterModule.registerRouter(RouterNameConstants.ENTRY_HAP,this.appRouter)
+    //console.log('主页面显示')
   }
+
 
   @Builder
   routerMap(builderName:string,param:object){
@@ -40,8 +42,13 @@ struct Index {
         }.tabBar('我的')
       }
       .scrollable(false)
+      .barHeight(48)
     }
      .hideTitleBar(true)
      .navDestination(this.routerMap)
+    .onAppear(()=>{
+      console.log('主页面显示')
+     //this.aboutToAppear()
+    })
   }
 }
