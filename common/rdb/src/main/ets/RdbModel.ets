@@ -15,19 +15,19 @@ export class DatabaseUtil{
       securityLevel:relationalStore.SecurityLevel.S1
     }
     const createTableSQL=`create table journal_data(
-                          date date not null,
-                          text text,
-                          primary key (date));`
+                          date date primary key,
+                          text text null);`
     relationalStore.getRdbStore(context,config,(err,rdbStore)=>{
       if(err){
         console.log('获取rdbStore失败: errCode:'+err.message)
       }
-      rdbStore.executeSql(createTableSQL, (err) => {
+      rdbStore.executeSql(createTableSQL, (err,) => {
         if (err) {
-          console.log('创建表格失败 errCode:' + err.message)
+          console.log('创建表格失败 errCode:' +err.code+'errMessage:'+ err.message)
+        }else{
+          console.log('成功创建表格journal_data')
         }
       })
-      console.log('成功创建表格journal_data')
       this.rdbStore=rdbStore
     })
   }
@@ -40,7 +40,7 @@ export class DatabaseUtil{
     }
     if(this.rdbStore!=undefined){
       try {
-        rowID = (this.rdbStore as relationalStore.RdbStore).insertSync(this.tableName, dataBucket, 5)
+        rowID = (this.rdbStore as relationalStore.RdbStore).insertSync(this.tableName, dataBucket, 4)
         console.log(`添加成功，rowID:${rowID}`)
       }catch (error){
         console.log('添加失败，errCode:'+error.code+error.message)
@@ -55,7 +55,7 @@ export class DatabaseUtil{
   getAllData():data1[]{
     let predicates=new relationalStore.RdbPredicates(this.tableName)
     predicates.orderByAsc('date')
-    predicates.equalTo('date','2024-11-27').distinct()
+    predicates.isNotNull('text')
     let data:data1[]=[]
     try {
       let resultSet:relationalStore.ResultSet=(this.rdbStore as relationalStore.RdbStore).querySync(predicates)

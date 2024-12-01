@@ -1,7 +1,7 @@
 import { BuilderNameConstants, builderRouterModel, RouterModule, RouterNameConstants} from 'routermodule'
 import {data1} from 'rdb'
 import dataModel from 'rdb'
-import { display } from '@kit.ArkUI'
+import { display, promptAction } from '@kit.ArkUI'
 
 @Builder
 export function homePageBuilder(){
@@ -42,7 +42,10 @@ startEdit(){
     onAccept:(value:Date)=>{
       builderRouterModel(RouterNameConstants.ENTRY_HAP,BuilderNameConstants.HOME_HOME)
       builderRouterModel(RouterNameConstants.ENTRY_HAP,BuilderNameConstants.HOME_EDITPAGE,value,(popInfo)=>{
-        dataModel.addData(popInfo.result as data1)
+        let num=dataModel.addData(popInfo.result as data1)
+        if(num==-1){
+          promptAction.showToast({message:'无法插入相同日期日记，请点击目标日期进行重新编辑！'})
+        }
         this.userData=dataModel.getAllData()
         RouterModule.getRouter(RouterNameConstants.ENTRY_HAP).pop()
       })
@@ -131,8 +134,6 @@ getListHeight(){
                   })
               )
               .onClick(()=>{
-                console.log('点击了不是删除按钮')
-                console.log('查看数据:'+item.date)
                 builderRouterModel(RouterNameConstants.ENTRY_HAP,BuilderNameConstants.HOME_HOME)
                 builderRouterModel(RouterNameConstants.ENTRY_HAP,BuilderNameConstants.HOME_UPDATEPAGE,item,(onPop)=>{
                   dataModel.updateData(onPop.result as data1)
